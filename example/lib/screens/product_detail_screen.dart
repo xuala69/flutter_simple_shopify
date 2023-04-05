@@ -3,7 +3,7 @@ import 'package:flutter_simple_shopify/flutter_simple_shopify.dart';
 import 'package:flutter_simple_shopify/models/src/product/product_variant/product_variant.dart';
 
 class ProductDetailScreen extends StatefulWidget {
-  const ProductDetailScreen({Key key, @required this.product})
+  const ProductDetailScreen({Key? key, required this.product})
       : super(key: key);
   final Product product;
 
@@ -14,9 +14,9 @@ class ProductDetailScreen extends StatefulWidget {
 class _ProductDetailScreenState extends State<ProductDetailScreen> {
   _ProductDetailScreenState(this.product);
   final Product product;
-  String checkoutId;
-  String checkoutUrl;
-  List<LineItem> lineItems;
+  String? checkoutId;
+  String? checkoutUrl;
+  List<LineItem> lineItems = [];
 
   @override
   Widget build(BuildContext context) {
@@ -26,7 +26,7 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
       ),
       body: ListView(
         children: <Widget>[
-          product?.images?.first?.originalSrc != null
+          product.images.first.originalSrc != null
               ? Image.network(
                   product.images.first.originalSrc,
                   width: MediaQuery.of(context).size.width,

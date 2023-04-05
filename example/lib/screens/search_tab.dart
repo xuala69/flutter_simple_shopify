@@ -70,12 +70,12 @@ class _SearchTabState extends State<SearchTab> {
       );
       if (mounted) {
         setState(() {
-          this.products = products;
+          if (products != null) this.products = products;
           _isLoading = false;
         });
       }
     } catch (e) {
-      debugPrint(e);
+      debugPrint(e.toString());
     }
   }
 

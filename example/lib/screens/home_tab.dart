@@ -48,7 +48,7 @@ class _HomeTabState extends State<HomeTab> {
           sortKey: SortKeyProduct.BEST_SELLING);
       if (mounted) {
         setState(() {
-          products = bestSellingProducts;
+          if (bestSellingProducts != null) products = bestSellingProducts;
           _isLoading = false;
         });
       }
@@ -64,7 +64,7 @@ class _HomeTabState extends State<HomeTab> {
         alignment: Alignment.bottomCenter,
         width: MediaQuery.of(context).size.width,
         height: MediaQuery.of(context).size.height,
-        decoration: product?.images?.first?.originalSrc != null
+        decoration: product.images.first.originalSrc != null
             ? BoxDecoration(
                 image: DecorationImage(
                     fit: BoxFit.cover,

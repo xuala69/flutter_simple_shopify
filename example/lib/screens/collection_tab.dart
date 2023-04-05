@@ -46,7 +46,7 @@ class _CollectionTabState extends State<CollectionTab> {
         });
       }
     } catch (e) {
-      debugPrint(e);
+      debugPrint(e.toString());
     }
   }
 
@@ -62,7 +62,7 @@ class _CollectionTabState extends State<CollectionTab> {
 
 class CollectionDetailScreen extends StatefulWidget {
   const CollectionDetailScreen(
-      {Key key, @required this.collectionId, @required this.collectionTitle})
+      {Key? key, required this.collectionId, required this.collectionTitle})
       : super(key: key);
   final String collectionId;
   final String collectionTitle;
@@ -111,12 +111,12 @@ class _CollectionDetailScreenState extends State<CollectionDetailScreen> {
       );
       if (mounted) {
         setState(() {
-          this.products = products;
+          if (products != null) this.products = products;
           _isLoading = false;
         });
       }
     } catch (e) {
-      debugPrint(e);
+      debugPrint(e.toString());
     }
   }
 }
